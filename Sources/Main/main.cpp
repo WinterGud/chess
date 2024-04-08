@@ -1,4 +1,4 @@
-
+#include "headers\BaseFigure.hpp"
 
 int main()
 {
