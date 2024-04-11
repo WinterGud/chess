@@ -2,7 +2,7 @@
 
 bool Pawn::move(int x, int y)
 {
-    if (firsMove)
+    if (m_firsMove)
     {
         
     }
@@ -10,10 +10,10 @@ bool Pawn::move(int x, int y)
     return false;
 }
 
-bool Pawn::attack(int x, int y, BaseEntity& attackedFigure)
+bool Pawn::attack(int x, int y, BaseFigure& attackedFigure)
 {
     m_x = attackedFigure.getX();
     m_y = attackedFigure.getY();
-    attackedFigure.~BaseEntity();
+    attackedFigure.~BaseFigure();
     return false;
 }

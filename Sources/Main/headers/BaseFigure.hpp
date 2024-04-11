@@ -1,14 +1,19 @@
 #pragma once
+#include "BaseEntity.hpp"
 
-class BaseEntity
+class BaseFigure : public BaseEntity
 {
 public:
-    BaseEntity(int x, int y);
-    virtual ~BaseEntity();
+    BaseFigure(int x, int y);
+
     virtual bool move(int x, int y) = 0;
-    virtual bool attack(int x, int y, BaseEntity& attackedFigure) = 0;
-    int getX() { return m_x; }
-    int getY() { return m_y; }
+    virtual bool attack(int x, int y, BaseFigure& attackedFigure) = 0;
+    
 protected:
-    int m_x, m_y;
+    enum color
+    {
+        BLACK,
+        WHITE,
+    };
+    color m_color;
 };

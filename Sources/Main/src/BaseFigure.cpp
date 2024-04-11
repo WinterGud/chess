@@ -1,8 +1,7 @@
-#include "BaseEntity.hpp"
+#include "BaseFigure.hpp"
 
-BaseEntity::BaseEntity(int x, int y)
-    : m_x(x)
-    , m_y(y)
+BaseFigure::BaseFigure(int x, int y)
+    : BaseEntity(x, y)
 {
     
 }

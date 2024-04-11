@@ -1,11 +1,11 @@
 #pragma once
 #include "BaseFigure.hpp"
 
-class Pawn : public BaseEntity
+class Pawn : public BaseFigure
 {
 public:
     bool move(int x, int y) override;
-    bool attack(int x, int y, BaseEntity& attackedFigure) override;
+    bool attack(int x, int y, BaseFigure& attackedFigure) override;
 protected:
-    bool firsMove = true;
+    bool m_firsMove = true;
 };
