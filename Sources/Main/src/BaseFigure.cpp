@@ -1,7 +1,7 @@
 #include "BaseFigure.hpp"
 
-BaseFigure::BaseFigure(int x, int y)
+BaseFigure::BaseFigure(int x, int y, color color)
     : BaseEntity(x, y)
 {
-    
+    m_color = color;
 }

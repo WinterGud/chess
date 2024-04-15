@@ -4,6 +4,7 @@
 class Pawn : public BaseFigure
 {
 public:
+    Pawn(int x, int y);
     bool move(int x, int y) override;
     bool attack(int x, int y, BaseFigure& attackedFigure) override;
 protected:
