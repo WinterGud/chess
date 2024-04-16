@@ -14,6 +14,7 @@ namespace
 class Map
 {
 public:
+    Map();
     std::shared_ptr<BaseEntity>& getEntity(int x, int y);
 private:
     std::array<std::array<std::shared_ptr<BaseEntity>, MAP_SIZE>, MAP_SIZE> m_map;

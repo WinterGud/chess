@@ -1,7 +1,7 @@
 #include "Pawn.h"
 
-Pawn::Pawn(int x, int y)
-    : BaseFigure(x, y)
+Pawn::Pawn(int x, int y, color color)
+    : BaseFigure(x, y, color)
 {
 }
 

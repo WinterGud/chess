@@ -37,6 +37,7 @@ void Game::run()
         {
             std::cout << "miss";
         }
+        std::cout << typeid(figure).name();
     }
 }
 
