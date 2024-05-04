@@ -1,22 +1,23 @@
 #pragma once
-#include <array>
+#include <vector>
 #include <memory>
 #include "BaseEntity.hpp"
-#include "FigureFactory.h"
+#include "EntityFactory.h"
 
+class BaseFigure;
 class BaseCell;
 
-namespace 
-{
-    const int MAP_SIZE = 8;
-}
 
 class Map
 {
 public:
     Map();
-    std::shared_ptr<BaseEntity>& getEntity(int x, int y);
+    void update();
+    BaseEntity& getFigure(int x, int y);
 private:
-    std::array<std::array<std::shared_ptr<BaseEntity>, MAP_SIZE>, MAP_SIZE> m_map;
-    FigureFactory m_figureFactory;
+    std::vector<BaseFigure> m_blackFigures;
+    std::vector<BaseFigure> m_whiteFigures;
+    std::vector<BaseCell> m_cells;
+    EntityFactory m_entityFactory;
+
 };

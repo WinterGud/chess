@@ -6,9 +6,11 @@
 class BaseEntity
 {
 public:
+    BaseEntity() = default;
     BaseEntity(int x, int y, color color);
     virtual ~BaseEntity();
-    virtual void is() { std::cout << "im BaseEntity\n"; }
+    virtual void draw();
+    virtual void update(){}
     int getX() const { return m_x; }
     int getY() const { return m_y; }
     color getColor() const { return m_color; }

@@ -1,5 +1,8 @@
 cmake_minimum_required(VERSION 3.6)
 
+# Set C++ standart
+set (CMAKE_CXX_STANDARD 26)
+
 # Set the project name
 project(Main)
 

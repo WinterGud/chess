@@ -12,3 +12,7 @@ BaseEntity::~BaseEntity()
 {
     
 }
+
+void BaseEntity::draw()
+{
+}

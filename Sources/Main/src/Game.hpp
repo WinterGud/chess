@@ -7,10 +7,14 @@ class Game
 public:
     Game();
     ~Game();
-    bool chooseFigure(BaseFigure& figure);
     void run();
-    void turn();
+    void update();
+
 private:
     Map m_map;
     color m_currentPlayerColor = WHITE;
+
+    bool m_whiteWin = false;
+    bool m_blackWin = false;
+    bool m_pat = false;
 };

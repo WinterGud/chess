@@ -2,27 +2,43 @@
 #include <iostream>
 #include "BaseCell.hpp"
 
-Map::Map()
+namespace 
 {
-    for (int i = 0; i < m_map.size(); i++)
-    {
-        for (int j = 0; j < m_map.size(); j++)
-        {
-            m_map[i][j] = std::make_shared<Pawn>(Pawn(i, j, WHITE));
-        }
-    }
-
-    for (int i = 0; i < m_map.size(); i++)
-    {
-        for (int j = 0; j < m_map.size(); j++)
-        {
-            m_map[i][j]->move();
-        }
-    }
+    const int32_t MAP_SIZE = 8;
 }
 
 
-std::shared_ptr<BaseEntity>& Map::getEntity(int x, int y)
+Map::Map()
 {
-    return m_map[x][y];
+    m_cells = std::vector<BaseCell>(MAP_SIZE);
+    m_cells = m_entityFactory.getCells(m_cells.size());
+}
+
+void Map::update()
+{
+    for (int i = 0; i < m_cells.size(); ++i)
+    {
+        m_cells[i].update();
+    }
+}
+
+BaseEntity& Map::getFigure(int x, int y)
+{
+    BaseEntity blackEntity(x, y, BLACK);
+    BaseEntity whiteEntity(x, y, WHITE);
+    if (std::find(m_blackFigures.begin(), m_blackFigures.end(), blackEntity) != m_blackFigures.end())
+    {
+        return *std::find(m_blackFigures.begin(), m_blackFigures.end(), blackEntity);
+    }
+    else if(std::find(m_whiteFigures.begin(), m_whiteFigures.end(), whiteEntity) != m_whiteFigures.end())
+    {
+        return *std::find(m_whiteFigures.begin(), m_whiteFigures.end(), whiteEntity);
+    }
+    else if(std::find(m_cells.begin(), m_cells.end(), blackEntity) != m_cells.end)
+    {
+        return *std::find(m_cells.begin(), m_cells.end(), blackEntity);
+    }
+    else
+    {
+    }
 }
