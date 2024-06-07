@@ -1,7 +1,7 @@
 #pragma once
 #include "BaseEntity.hpp"
 
-class BaseCell : BaseEntity
+class BaseCell : public BaseEntity
 {
 public:
     BaseCell(int x, int y, color color);

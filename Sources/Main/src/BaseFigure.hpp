@@ -10,5 +10,5 @@ public:
     virtual bool attack(int x, int y, BaseFigure& attackedFigure) = 0;
     void draw() override = 0;
     void update() override;
-
+    
 };

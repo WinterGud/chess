@@ -12,10 +12,22 @@ file(GLOB CPP_MAIN "*.cpp")
 file(GLOB HPP_SOURCES "src/*.hpp")
 file(GLOB H_SOURCES "src/*.h")
 file(GLOB CPP_FIGURES "Figures/*.cpp")
-file(GLOB H_FIGURES "Figures/*.H")
+file(GLOB H_FIGURES "Figures/*.h")
 
 include_directories("${PROJECT_SOURCE_DIR}/src")
 include_directories("${PROJECT_SOURCE_DIR}/Figures")
+
+#SDL2 SETTINGS
+
+# Include directories for headers
+set(SDL2_INCLUDE_DIRS "${CMAKE_CURRENT_LIST_DIR}/include")
+include_directories(${SDL2_INCLUDE_DIRS})
+
+# Specify the path to the .dll and .lib files
+set(LIB_PATH "${CMAKE_CURRENT_LIST_DIR}/lib")
+
+# Link against the .lib file
+link_directories(${LIB_PATH})
 
 # Add the executable target
 add_executable(${PROJECT_NAME}
@@ -25,3 +37,12 @@ add_executable(${PROJECT_NAME}
     ${CPP_FIGURES}
     ${CPP_SOURCES} 
     ${CPP_MAIN})
+
+target_link_libraries(${PROJECT_NAME} "${LIB_PATH}/SDL2.lib" "${LIB_PATH}/SDL2main.lib")
+
+
+# Copy the .dll to the output directory
+add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different
+    "${LIB_PATH}/SDL2.dll"
+    $<TARGET_FILE_DIR:${PROJECT_NAME}>)

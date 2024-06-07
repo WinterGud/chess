@@ -18,6 +18,8 @@ private:
     std::vector<BaseFigure> m_blackFigures;
     std::vector<BaseFigure> m_whiteFigures;
     std::vector<BaseCell> m_cells;
+
+    
     EntityFactory m_entityFactory;
 
 };

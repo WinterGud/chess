@@ -4,7 +4,7 @@
 class TextInputManager : BaseInputManager
 {
 public:
-    TextInputManager(const Map& map);
+    TextInputManager(Map& map);
     BaseEntity& getFigure() override;
     Coord getMove(BaseFigure& figure) override;
 };

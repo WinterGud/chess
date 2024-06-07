@@ -10,5 +10,5 @@ public:
     virtual BaseEntity& getFigure() = 0;
     virtual Coord getMove(BaseFigure& figure) = 0;
 
-    Map* m_map;
+    Map& m_map;
 };
