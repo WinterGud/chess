@@ -5,7 +5,7 @@
 class BaseEntity
 {
 public:
-    BaseEntity(int x, int y, int w, int h, color color, const std::string& texturePath);
+    BaseEntity(int x, int y, int w, int h, Color color, const std::string& texturePath);
     virtual ~BaseEntity();
     
     virtual void draw() = 0;
@@ -17,9 +17,9 @@ public:
     int getY() const { return m_entityRect.y; }
     int getWidth() const { return m_entityRect.w; }
     int getHeight() const { return m_entityRect.h; }
-    color getColor() const { return m_color; }
+    Color getColor() const { return m_color; }
 protected:
     SDL_Rect m_entityRect;
-    color m_color;
+    Color m_color;
     SDL_Texture* m_texture;
 };

@@ -1,16 +1,14 @@
 #pragma once
 #include "SDL.h"
 #include <string>
-enum color
+enum Color
 {
     BLACK,
     WHITE,
 };
 
-constexpr int32_t MAP_SIZE = 8;
-
-constexpr int32_t SCREEN_WIDTH = 640;
-constexpr int32_t SCREEN_HEIGHT = 480;
+constexpr int32_t SCREEN_WIDTH = 800;
+constexpr int32_t SCREEN_HEIGHT = 800;
 
 inline SDL_Window* window = nullptr;
 inline SDL_Renderer* renderer = nullptr;

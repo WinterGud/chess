@@ -28,7 +28,8 @@ Game::Game()
             }
         }
     }
-    m_pawn = new Pawn(100, 100, 100, 100, WHITE, PAWN_WHITE);
+    m_pawn = std::make_shared<Pawn> (Pawn(0, 0, 100, 100, WHITE, PAWN_WHITE));
+    m_player = std::make_shared<Player> (Player(0, 0, 100, 100, WHITE));
 }
 
 Game::~Game()
@@ -59,7 +60,7 @@ void Game::run()
         }
         
         SDL_RenderClear(renderer);
-        m_pawn->draw();
+        m_player->draw();
         SDL_RenderPresent(renderer);
     }
 }

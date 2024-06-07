@@ -1,6 +1,6 @@
 #include "Pawn.h"
 
-Pawn::Pawn(int x, int y, int w, int h, color color, const std::string& texturePath)
+Pawn::Pawn(int x, int y, int w, int h, Color color, const std::string& texturePath)
     : BaseFigure(x, y, w, h, color, texturePath)
 {
 }
