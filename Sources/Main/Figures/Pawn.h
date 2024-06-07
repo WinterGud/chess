@@ -4,9 +4,10 @@
 class Pawn : public BaseFigure
 {
 public:
-    Pawn(int x, int y, color color);
+    Pawn(int x, int y, int w, int h, color color, const std::string& texturePath);
     bool move(int x, int y) override;
-    void draw() override { std::cout << "im Pawn\n"; }
+    void draw() override;
+    void update() override;
     
     bool attack(int x, int y, BaseFigure& attackedFigure) override;
 protected:

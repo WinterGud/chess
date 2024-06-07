@@ -38,11 +38,12 @@ add_executable(${PROJECT_NAME}
     ${CPP_SOURCES} 
     ${CPP_MAIN})
 
-target_link_libraries(${PROJECT_NAME} "${LIB_PATH}/SDL2.lib" "${LIB_PATH}/SDL2main.lib")
+target_link_libraries(${PROJECT_NAME} "${LIB_PATH}/SDL2.lib" "${LIB_PATH}/SDL2main.lib" "${LIB_PATH}/SDL2_image.lib")
 
 
 # Copy the .dll to the output directory
 add_custom_command(TARGET ${PROJECT_NAME} POST_BUILD
     COMMAND ${CMAKE_COMMAND} -E copy_if_different
     "${LIB_PATH}/SDL2.dll"
+    "${LIB_PATH}/SDL2_image.dll"
     $<TARGET_FILE_DIR:${PROJECT_NAME}>)

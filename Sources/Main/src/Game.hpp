@@ -1,6 +1,6 @@
 #pragma once
-#include "Map.hpp"
-#include "Constants.hpp"
+#include "Pawn.h"
+#include <SDL.h>
  
 class Game
 {
@@ -8,13 +8,10 @@ public:
     Game();
     ~Game();
     void run();
-    void update();
 
 private:
-    Map m_map;
-    color m_currentPlayerColor = WHITE;
-
-    bool m_whiteWin = false;
-    bool m_blackWin = false;
-    bool m_pat = false;
+    
+    bool m_quit = false;
+    SDL_Event m_event;
+    Pawn *m_pawn;
 };
