@@ -10,11 +10,6 @@ bool Pawn::move(int x, int y)
     return true;
 }
 
-void Pawn::draw()
-{
-    SDL_RenderCopy(renderer, m_texture, nullptr, &m_entityRect);
-}
-
 void Pawn::update()
 {
 }

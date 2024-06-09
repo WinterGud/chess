@@ -28,8 +28,9 @@ Game::Game()
             }
         }
     }
-    m_pawn = std::make_shared<Pawn> (Pawn(0, 0, 100, 100, WHITE, PAWN_WHITE));
-    m_player = std::make_shared<Player> (Player(0, 0, 100, 100, WHITE));
+    m_cell = std::make_shared<Cell> (Cell(0, 0, CELL_WIDTH, CELL_HEIGHT, ILLUMINATION));
+    m_cell->setVisible(true);
+    m_map = std::make_shared<Map> (Map());
 }
 
 Game::~Game()
@@ -59,8 +60,20 @@ void Game::run()
             }
         }
         
-        SDL_RenderClear(renderer);
-        m_player->draw();
-        SDL_RenderPresent(renderer);
+        SDL_GetMouseState(&m_mouseX, &m_mouseY);
+        m_mouseX = m_mouseX / CELL_WIDTH * CELL_WIDTH;
+        m_mouseY = m_mouseY / CELL_HEIGHT * CELL_HEIGHT;
+        m_cell->setX(m_mouseX);
+        m_cell->setY(m_mouseY);
+        
+        draw();
     }
+}
+
+void Game::draw()
+{
+    SDL_RenderClear(renderer);
+    m_map->draw();
+    m_cell->draw();
+    SDL_RenderPresent(renderer);
 }
