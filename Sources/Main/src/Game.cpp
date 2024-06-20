@@ -72,8 +72,7 @@ void Game::update()
 {
     m_quit = m_inputManager.getQuit();
 
-    m_mainCellX = m_inputManager.getMouseX() / CELL_WIDTH * CELL_WIDTH;
-    m_mainCellY = m_inputManager.getMouseY() / CELL_HEIGHT * CELL_HEIGHT;
-    m_mainCell->setX(m_mainCellX);
-    m_mainCell->setY(m_mainCellY);
+    m_mainCellX = m_inputManager.getMouseCoord().m_x / CELL_WIDTH * CELL_WIDTH;
+    m_mainCellY = m_inputManager.getMouseCoord().m_y / CELL_HEIGHT * CELL_HEIGHT;
+    m_mainCell->setCoord(m_mainCellX, m_mainCellY);
 }

@@ -9,6 +9,7 @@ class Map
 public:
     Map();
     void draw();
+    
 protected:
     std::vector<Cell> m_listCells;
     std::shared_ptr<Player> m_whitePlayer;

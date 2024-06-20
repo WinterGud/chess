@@ -1,6 +1,8 @@
 #pragma once
 #include "Constants.hpp"
 #include <string>
+#include "Coord.h"
+
 
 class BaseEntity
 {
@@ -10,9 +12,9 @@ public:
     
     virtual void draw();
     
-    void setX(int x) { m_entityRect.x = x; }
-    void setY(int y) { m_entityRect.y = y; }
-    int getX() const { return m_entityRect.x; }
+    void setCoord(Coord coord);
+    void setCoord(int x, int y);
+    const Coord getCoord();
     int getY() const { return m_entityRect.y; }
     int getWidth() const { return m_entityRect.w; }
     int getHeight() const { return m_entityRect.h; }

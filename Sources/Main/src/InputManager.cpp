@@ -13,16 +13,10 @@ bool InputManager::getQuit()
     return m_quit;
 }
 
-int InputManager::getMouseX()
+Coord& InputManager::getMouseCoord()
 {
-    SDL_GetMouseState(&m_mouseX, &m_mouseY);
-    return m_mouseX;
-}
-
-int InputManager::getMouseY()
-{
-    SDL_GetMouseState(&m_mouseX, &m_mouseY);
-    return m_mouseY;
+    SDL_GetMouseState(&m_mouseCoord.m_x, &m_mouseCoord.m_y);
+    return m_mouseCoord;
 }
 
 bool InputManager::getLeftMousePressed()

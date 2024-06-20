@@ -12,9 +12,22 @@ Player::Player(int pawnStartX, int pawnStartY, int figureStartX, int figureStart
     
 }
 
+std::shared_ptr<BaseFigure>& Player::getFigure(int x, int y)
+{
+    auto it = m_figures.begin();
+    for (; it != m_figures.end(); ++it)
+    {
+        if((*it)->getCoord().m_x == x && (*it)->getY() == y)
+        {
+            return (*it);
+        }
+    }
+    throw "wrong coordinates of figure";
+}
+
 void Player::draw()
 {
-    for (const auto figure : m_figures)
+    for (const auto& figure : m_figures)
     { 
         figure->draw();
     }

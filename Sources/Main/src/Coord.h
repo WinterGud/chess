@@ -2,10 +2,10 @@
 
 struct Coord
 {
-    Coord(double x, double y)
+    Coord(int x, int y)
         : m_x(x), m_y(y)
     {
     }
-    double m_x;
-    double m_y;
+    int m_x;
+    int m_y;
 };

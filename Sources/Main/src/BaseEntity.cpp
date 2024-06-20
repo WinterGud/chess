@@ -23,3 +23,18 @@ void BaseEntity::draw()
 {
     SDL_RenderCopy(renderer, m_texture, nullptr, &m_entityRect);
 }
+
+void BaseEntity::setCoord(Coord coord)
+{
+    m_entityRect.x = coord.m_x; m_entityRect.y = coord.m_y;
+}
+
+void BaseEntity::setCoord(int x, int y)
+{
+    m_entityRect.x = x; m_entityRect.y = y;
+}
+
+const Coord BaseEntity::getCoord()
+{
+    return Coord(m_entityRect.x, m_entityRect.y);
+}
