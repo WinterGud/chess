@@ -12,17 +12,30 @@ Player::Player(int pawnStartX, int pawnStartY, int figureStartX, int figureStart
     
 }
 
-std::shared_ptr<BaseFigure>& Player::getFigure(int x, int y)
+bool Player::isFigurePresent(int x, int y)
 {
     auto it = m_figures.begin();
     for (; it != m_figures.end(); ++it)
     {
         if((*it)->getCoord().m_x == x && (*it)->getY() == y)
         {
-            return (*it);
+            return true;
         }
     }
-    throw "wrong coordinates of figure";
+    return false;
+}
+
+std::shared_ptr<BaseFigure>* Player::getFigure(int x, int y)
+{
+    auto it = m_figures.begin();
+    for (; it != m_figures.end(); ++it)
+    {
+        if((*it)->getCoord().m_x == x && (*it)->getY() == y)
+        {
+            return &(*it);
+        }
+    }
+    return nullptr;
 }
 
 void Player::draw()

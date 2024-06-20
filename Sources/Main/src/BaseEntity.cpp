@@ -1,6 +1,6 @@
 #include <BaseEntity.hpp>
 #include <iostream>
-
+#include "Logger.h"
 #include "SDL.h"
 #include "SDL_image.h"
 
@@ -10,7 +10,7 @@ BaseEntity::BaseEntity(int x, int y, int w, int h, const std::string& texturePat
 {
     if (m_texture == nullptr)
     {
-        std::cerr << "Unable to load texture! SDL_Error: " << SDL_GetError() << '\n';
+        Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("Unable to load texture! SDL_Error: ") + SDL_GetError() + '\n');
     }
 }
 

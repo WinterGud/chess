@@ -18,6 +18,8 @@ constexpr int32_t CELL_HEIGHT = SCREEN_HEIGHT / NUM_OF_COLUMNS;
 inline SDL_Window* window = nullptr;
 inline SDL_Renderer* renderer = nullptr;
 
+const std::string LOGGER_OUT_PATH = "..\\..\\..\\chess\\Sources\\Main\\log.txt";
+
 const std::string PAWN_WHITE = "..\\..\\..\\chess\\Sources\\Main\\assets\\W_Pawn.png";
 const std::string PAWN_BLACK = "..\\..\\..\\chess\\Sources\\Main\\assets\\W_Pawn.png";
 

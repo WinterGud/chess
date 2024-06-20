@@ -2,16 +2,17 @@
 #include <SDL_image.h>
 #include "iostream"
 #include "Constants.hpp"
+#include "Logger.h"
 
 Game::Game()
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
+        Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("SDL could not initialize! SDL_Error: %s\n") + SDL_GetError() + '\n');
     }
     if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
     {
-        std::cerr << "SDL_image could not initialize! IMG_Error: " << IMG_GetError() << '\n';
+        Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("SDL_image could not initialize! IMG_Error: ") + IMG_GetError() + '\n');
     }
     else
     {
@@ -19,14 +20,14 @@ Game::Game()
                                   SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
         if (window == nullptr)
         {
-            printf("Window could not be created! SDL_Error: %s\n", SDL_GetError());
+            Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("Window could not be created! SDL_Error: %s\n") + SDL_GetError() + '\n');
         }
         else
         {
             renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
             if (renderer == nullptr)
             {
-                std::cerr << "Renderer could not be created! SDL_Error: " << SDL_GetError() << '\n';
+                Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string( "Renderer could not be created! SDL_Error: ") + SDL_GetError() + '\n');
             }
         }
     }
