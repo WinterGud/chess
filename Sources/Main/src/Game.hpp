@@ -19,7 +19,6 @@ public:
 
 private:
     InputManager m_inputManager;
-    
     bool m_quit = false;
     SDL_Event m_event;
     std::shared_ptr<Cell> m_mainCell;

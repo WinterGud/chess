@@ -12,4 +12,5 @@ public:
     Color getColor() const { return m_color; }
 protected:
     Color m_color;
+    
 };

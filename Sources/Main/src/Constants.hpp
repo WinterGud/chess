@@ -15,8 +15,8 @@ constexpr int32_t NUM_OF_COLUMNS = 8;
 constexpr int32_t CELL_WIDTH = SCREEN_WIDTH / NUM_OF_COLUMNS;
 constexpr int32_t CELL_HEIGHT = SCREEN_HEIGHT / NUM_OF_COLUMNS;
 
-inline SDL_Window* window = nullptr;
-inline SDL_Renderer* renderer = nullptr;
+
+
 
 const std::string LOGGER_OUT_PATH = "..\\..\\..\\chess\\Sources\\Main\\log.txt";
 
