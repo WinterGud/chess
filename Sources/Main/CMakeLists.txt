@@ -13,6 +13,7 @@ file(GLOB HPP_SOURCES "src/*.hpp")
 file(GLOB H_SOURCES "src/*.h")
 file(GLOB CPP_FIGURES "Figures/*.cpp")
 file(GLOB H_FIGURES "Figures/*.h")
+file(GLOB HPP_FIGURES "Figures/*.hpp")
 
 include_directories("${PROJECT_SOURCE_DIR}/src")
 include_directories("${PROJECT_SOURCE_DIR}/Figures")
@@ -32,6 +33,7 @@ link_directories(${LIB_PATH})
 # Add the executable target
 add_executable(${PROJECT_NAME}
     ${HPP_SOURCES} 
+    ${HPP_FIGURES}
     ${H_SOURCES} 
     ${H_FIGURES} 
     ${CPP_FIGURES}

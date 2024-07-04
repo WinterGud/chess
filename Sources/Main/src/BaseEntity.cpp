@@ -5,13 +5,14 @@
 #include "SDL.h"
 #include "SDL_image.h"
 
-BaseEntity::BaseEntity(int x, int y, int w, int h, const std::string& texturePath)
+BaseEntity::BaseEntity(int x, int y, int w, int h, Color color, const std::string& texturePath)
     : m_entityRect(x, y, w, h)
     , m_texture(IMG_LoadTexture(Renderer::getInstance().getRenderer(), texturePath.c_str()))
+    , m_color(color)
 {
     if (m_texture == nullptr)
     {
-        Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("Unable to load texture! SDL_Error: ") + SDL_GetError() + '\n');
+        Logger::getInstance(PATH_LOGGER_OUT).log(WARNING, std::string("Unable to load texture! SDL_Error: ") + SDL_GetError() + '\n');
     }
 }
 

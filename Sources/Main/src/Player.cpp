@@ -7,7 +7,7 @@ Player::Player(int pawnStartX, int pawnStartY, int figureStartX, int figureStart
 {
     for (int width = 0, height = 0; width < NUM_OF_COLUMNS * CELL_WIDTH; width += CELL_WIDTH, height += CELL_HEIGHT)
     {
-        m_figures.push_back(std::make_shared<Pawn>(Pawn(pawnStartX + width, pawnStartY, CELL_WIDTH, CELL_HEIGHT, m_color, PAWN_WHITE)));
+        m_figures.push_back(std::make_shared<Pawn>(Pawn(pawnStartX + width, pawnStartY, CELL_WIDTH, CELL_HEIGHT, m_color, PATH_PAWN_WHITE)));
     }
     
 }

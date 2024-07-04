@@ -35,11 +35,11 @@ Renderer::Renderer()
 {
     if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
-        Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("SDL could not initialize! SDL_Error: %s\n") + SDL_GetError() + '\n');
+        Logger::getInstance(PATH_LOGGER_OUT).log(WARNING, std::string("SDL could not initialize! SDL_Error: %s\n") + SDL_GetError() + '\n');
     }
     if (!(IMG_Init(IMG_INIT_PNG) & IMG_INIT_PNG))
     {
-        Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("SDL_image could not initialize! IMG_Error: ") + IMG_GetError() + '\n');
+        Logger::getInstance(PATH_LOGGER_OUT).log(WARNING, std::string("SDL_image could not initialize! IMG_Error: ") + IMG_GetError() + '\n');
     }
     else
     {
@@ -47,14 +47,14 @@ Renderer::Renderer()
                                   SCREEN_HEIGHT, SDL_WINDOW_SHOWN);
         if (m_window == nullptr)
         {
-            Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string("Window could not be created! SDL_Error: %s\n") + SDL_GetError() + '\n');
+            Logger::getInstance(PATH_LOGGER_OUT).log(WARNING, std::string("Window could not be created! SDL_Error: %s\n") + SDL_GetError() + '\n');
         }
         else
         {
             m_renderer = SDL_CreateRenderer(m_window, -1, SDL_RENDERER_ACCELERATED);
             if (m_renderer == nullptr)
             {
-                Logger::getInstance(LOGGER_OUT_PATH).log(WARNING, std::string( "Renderer could not be created! SDL_Error: ") + SDL_GetError() + '\n');
+                Logger::getInstance(PATH_LOGGER_OUT).log(WARNING, std::string( "Renderer could not be created! SDL_Error: ") + SDL_GetError() + '\n');
             }
         }
     }
