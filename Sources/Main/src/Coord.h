@@ -1,4 +1,5 @@
 #pragma once
+#include <compare>
 
 struct Coord
 {
@@ -8,4 +9,5 @@ struct Coord
     }
     int m_x;
     int m_y;
+    auto operator<=>(const Coord& coord) const = default;
 };

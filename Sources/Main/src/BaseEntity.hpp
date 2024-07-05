@@ -12,14 +12,15 @@ public:
 
     virtual void draw();
     void setColor(Color color) { m_color = color; }
-    void setCoord(Coord coord);
-    void setCoord(int x, int y);
+    virtual void setCoord(Coord coord);
+    virtual void setCoord(int x, int y);
     const Coord getCoord();
     int getX() const { return m_entityRect.x; }
     int getY() const { return m_entityRect.y; }
     int getWidth() const { return m_entityRect.w; }
     int getHeight() const { return m_entityRect.h; }
     Color getColor() const { return m_color; }
+    void destroyEntity();
 
 protected:
     SDL_Rect m_entityRect;

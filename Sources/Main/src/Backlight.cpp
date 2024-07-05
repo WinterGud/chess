@@ -1,12 +1,12 @@
-#include "Highlight.h"
+#include "Backlight.h"
 
-Highlight::Highlight(int x, int y, int w, int h, Color color, const std::string& texturePath)
+Backlight::Backlight(int x, int y, int w, int h, Color color, const std::string& texturePath)
     : BaseEntity(x, y, w, h, color, texturePath)
     , m_highlight(false)
 {
 }
 
-void Highlight::draw()
+void Backlight::draw()
 {
     if (m_highlight)
     {

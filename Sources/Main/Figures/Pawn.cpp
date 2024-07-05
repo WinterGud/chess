@@ -5,7 +5,12 @@ Pawn::Pawn(int x, int y, int w, int h, Color color, const std::string& texturePa
 {
 }
 
-bool Pawn::move(int x, int y)
+Pawn::~Pawn()
+{
+    
+}
+
+bool Pawn::move(Coord coord)
 {
     return true;
 }
@@ -14,7 +19,7 @@ void Pawn::update()
 {
 }
 
-bool Pawn::attack(int x, int y, BaseFigure& attackedFigure)
+bool Pawn::attack(BaseFigure& attackedFigure)
 {
     return true;
 }

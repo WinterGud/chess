@@ -4,3 +4,13 @@ Cell::Cell(int x, int y, int w, int h, Color color, const std::string& texturePa
     : BaseEntity(x, y, w, h, color, texturePath)
 {
 }
+
+void Cell::setCoord(int x, int y)
+{
+    
+}
+
+void Cell::setCoord(Coord coord)
+{
+    
+}

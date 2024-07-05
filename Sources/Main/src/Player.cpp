@@ -7,17 +7,24 @@ Player::Player(int pawnStartX, int pawnStartY, int figureStartX, int figureStart
 {
     for (int width = 0, height = 0; width < NUM_OF_COLUMNS * CELL_WIDTH; width += CELL_WIDTH, height += CELL_HEIGHT)
     {
-        m_figures.push_back(std::make_shared<Pawn>(Pawn(pawnStartX + width, pawnStartY, CELL_WIDTH, CELL_HEIGHT, m_color, PATH_PAWN_WHITE)));
+        if (color == WHITE)
+        {
+            m_figures.push_back(std::make_shared<Pawn>(Pawn(pawnStartX + width, pawnStartY, CELL_WIDTH, CELL_HEIGHT, m_color, PATH_PAWN_WHITE)));
+        }
+        else if (color == BLACK)
+        {
+            m_figures.push_back(std::make_shared<Pawn>(Pawn(pawnStartX + width, pawnStartY, CELL_WIDTH, CELL_HEIGHT, m_color, PATH_PAWN_BLACK)));
+        }
     }
     
 }
 
-bool Player::isFigurePresent(int x, int y)
+bool Player::isFigurePresent(const Coord& coord)
 {
     auto it = m_figures.begin();
     for (; it != m_figures.end(); ++it)
     {
-        if((*it)->getCoord().m_x == x && (*it)->getY() == y)
+        if((*it)->getCoord() == coord)
         {
             return true;
         }
@@ -25,12 +32,12 @@ bool Player::isFigurePresent(int x, int y)
     return false;
 }
 
-std::shared_ptr<BaseFigure>* Player::getFigure(int x, int y)
+std::shared_ptr<BaseFigure>* Player::getFigure(Coord coord)
 {
     auto it = m_figures.begin();
     for (; it != m_figures.end(); ++it)
     {
-        if((*it)->getCoord().m_x == x && (*it)->getY() == y)
+        if((*it)->getCoord() == coord)
         {
             return &(*it);
         }

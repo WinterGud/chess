@@ -18,7 +18,6 @@ BaseEntity::BaseEntity(int x, int y, int w, int h, Color color, const std::strin
 
 BaseEntity::~BaseEntity()
 {
-    
 }
 
 void BaseEntity::draw()
@@ -39,4 +38,13 @@ void BaseEntity::setCoord(int x, int y)
 const Coord BaseEntity::getCoord()
 {
     return Coord(m_entityRect.x, m_entityRect.y);
+}
+
+void BaseEntity::destroyEntity()
+{
+    if (m_texture)
+    {
+        SDL_DestroyTexture(m_texture);
+        m_texture = nullptr;
+    }
 }

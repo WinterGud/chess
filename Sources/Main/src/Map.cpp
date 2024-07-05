@@ -1,5 +1,9 @@
 #include "Map.h"
 #include <Constants.hpp>
+#include "Cell.h"
+#include "Player.h"
+#include "Backlight.h"
+
 
 Map::Map()
 {
@@ -32,31 +36,67 @@ Map::Map()
             blackCell = false;
         }
     }
+
+    for (int i = 0; i < SCREEN_WIDTH; i += CELL_WIDTH)
+    {
+        for (int j = 0; j < SCREEN_HEIGHT; j += CELL_HEIGHT)
+        {
+            m_listBacklight.push_back(std::make_shared<Backlight>(Backlight(i, j, CELL_WIDTH, CELL_HEIGHT, YELLOW, PATH_BACKLIGHT)));
+        }
+    }
 }
 
-auto Map::getEntity(int x, int y, Color color) const -> BaseEntity&
+auto Map::getEntity(Coord coord, Color color) const -> BaseEntity&
 {
-    if (color == BLACK && m_blackPlayer->isFigurePresent(x, y))
+    if (color == BLACK && m_blackPlayer->isFigurePresent(coord))
     {
-        return **m_blackPlayer->getFigure(x, y);
+        return **m_blackPlayer->getFigure(coord);
     }
-    else if (color == WHITE && m_whitePlayer->isFigurePresent(x, y))
+    else if (color == WHITE && m_whitePlayer->isFigurePresent(coord))
     {
-        return **m_whitePlayer->getFigure(x, y);
+        return **m_whitePlayer->getFigure(coord);
     }
     else
     {
-        return *m_listCells[0];
+        for (const auto& cell : m_listCells)
+        {
+            if (cell->getCoord() == coord)
+            {
+                return *cell;
+            }
+        }
     }
+    return *m_listCells[1];
 }
 
 void Map::draw() const
 {
-    for (auto cell : m_listCells)
+    for (const auto& cell : m_listCells)
     {
         cell->draw();
     }
 
     m_whitePlayer->draw();
     m_blackPlayer->draw();
+
+    for (const auto& backlight : m_listBacklight)
+    {
+        backlight->draw();
+    }
+}
+
+void Map::highlightBacklight(const std::vector<int>& backlights)
+{
+    for (auto i : backlights)
+    {
+        m_listBacklight[i]->setVisible(true);
+    }
+}
+
+void Map::turnOffBacklight()
+{
+    for (auto backlight : m_listBacklight)
+    {
+        backlight->setVisible(false);
+    }
 }
