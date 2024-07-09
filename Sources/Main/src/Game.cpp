@@ -1,6 +1,7 @@
 #include "Game.hpp"
 #include "Constants.hpp"
 #include "Logger.h"
+#include "Pawn.h"
 #include "Renderer.h"
 
 Game::Game()
