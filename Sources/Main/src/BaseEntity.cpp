@@ -27,7 +27,7 @@ void BaseEntity::draw()
 
 void BaseEntity::setCoord(Coord coord)
 {
-    m_entityRect.x = coord.m_x; m_entityRect.y = coord.m_y;
+    m_entityRect.x = coord.x; m_entityRect.y = coord.y;
 }
 
 void BaseEntity::setCoord(int x, int y)

@@ -6,9 +6,10 @@ class BaseFigure : public BaseEntity
 {
 public:
     BaseFigure(int x, int y, int w, int h, Color color, const std::string& texturePath);
-    virtual bool move(Coord coord) = 0;
-    virtual bool attack(BaseFigure& attackedFigure) = 0;
-    virtual void update() = 0;
+    virtual bool checkMove(Coord coord) = 0;
+    virtual bool attack(const BaseFigure& attackedFigure) = 0;
+    Coord getCurrentCoord() { return m_currentCoord; }
+    void updateCurrentCoord();
 protected:
-    bool m_clicked = false;
+    Coord m_currentCoord;
 };

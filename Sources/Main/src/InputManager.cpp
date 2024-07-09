@@ -29,8 +29,8 @@ void InputManager::update()
             break;
 
         case SDL_MOUSEMOTION:
-            m_mouseCoord.m_x = m_event.motion.x;
-            m_mouseCoord.m_y = m_event.motion.y;
+            m_mouseCoord.x = m_event.motion.x;
+            m_mouseCoord.y = m_event.motion.y;
             break;
         }
     }

@@ -15,4 +15,6 @@ public:
 private:
     std::vector<std::shared_ptr<BaseFigure>> m_figures;
     Color m_color;
+
+    bool m_isKingInDanger = false;
 };

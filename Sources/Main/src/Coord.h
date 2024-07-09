@@ -4,10 +4,10 @@
 struct Coord
 {
     Coord(int x, int y)
-        : m_x(x), m_y(y)
+        : x(x), y(y)
     {
     }
-    int m_x;
-    int m_y;
+    int x;
+    int y;
     auto operator<=>(const Coord& coord) const = default;
 };
