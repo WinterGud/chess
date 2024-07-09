@@ -2,6 +2,7 @@
 #include "Constants.hpp"
 #include "Logger.h"
 #include "Pawn.h"
+#include "Cell.h"
 #include "Renderer.h"
 
 Game::Game()
